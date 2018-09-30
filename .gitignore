@@ -45,3 +45,22 @@ Thumbs.db
 
 # Env file
 *.env
+
+.vagrant
+mean
+server
+src-react
+yarn.lock
+src
+.dockerignore
+.editorconfig
+.env.example
+docker-compose.yml
+Dockerfile
+karma.conf.js
+package-lock.json
+package.json
+protractor.conf.js
+tsconfig.json
+tslint.json
+angular.json
