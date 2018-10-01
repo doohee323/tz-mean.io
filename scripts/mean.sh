@@ -55,11 +55,12 @@ sudo service nginx restart
 sudo mkdir -p $HOME_DIR
 cd $HOME_DIR
 
-sudo npm install typescript -g
-sudo npm install ng -g
 sudo npm install node-gyp -g
 sudo npm install bcrypt -g
+
 sudo npm install -g @angular/cli
+sudo npm install typescript -g
+sudo npm install ng -g
 
 sudo rm -Rf mean
 sudo rm -Rf node_modules
@@ -80,20 +81,7 @@ ng update @angular/core
 npm install
 sudo npm audit fix --force
 
-#npm install mini-css-extract-plugin
-
-#sudo npm remove webpack
-#sudo npm install webpack@4.11.1
-
 ng build
 
 nohup npm start > out.log 2>&1 &
-
-cd $PROJ_DIR
-git clone https://github.com/linnovate/mean.git
-
-#sudo rsync -avP $PROJ_DIR/mean $HOME_DIR/mean
-#cat <(crontab -l) <(echo "* * * * * sudo rsync -avP $PROJ_DIR/wordpress/ /usr/share/nginx/html/ && sudo chown -Rf www-data:www-data /usr/share/nginx/html") | crontab -
-
-
 

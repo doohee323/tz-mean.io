@@ -37,8 +37,8 @@
 			http://192.168.82.170
 		
 	<for local>
-		cd ~/tz-mean.io/mean
-		npm install && npm start
+		cd ~/tz-mean.io/scripts
+		bash local.sh
 		
 		# for debugging
 		ng serve
