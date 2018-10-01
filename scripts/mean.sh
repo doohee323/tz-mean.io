@@ -38,7 +38,7 @@ sudo apt-get install nodejs -y
 node -v
 
 sudo apt-get install npm -y
-sudo apt-get install build-essential libssl-dev
+sudo apt-get install build-essential libssl-dev -y
 curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
 sudo bash install_nvm.sh
 nvm install 8.12.0
@@ -52,31 +52,48 @@ sudo cp -Rf $SRC_DIR/nginx/default /etc/nginx/sites-available
 sudo service nginx restart
 
 ### [install mean.io] ############################################################################################################
-sudo mkdir -p $PROJ_DIR
-cd $PROJ_DIR
+sudo mkdir -p $HOME_DIR
+cd $HOME_DIR
 
 sudo npm install typescript -g
 sudo npm install ng -g
+sudo npm install node-gyp -g
 sudo npm install bcrypt -g
 sudo npm install -g @angular/cli
 
+sudo rm -Rf mean
+sudo rm -Rf node_modules
 git clone https://github.com/linnovate/mean.git
 cd mean
 sudo npm install --unsafe-perm=true --allow-root
 sudo npm audit fix --force
 
-sudo chown -Rf vagrant:vagrant ${PROJ_DIR}/mean/
-sudo chown -Rf vagrant:vagrant ${PROJ_DIR}/.config
+sudo chown -Rf vagrant:vagrant ${HOME_DIR}/mean/
+sudo chown -Rf vagrant:vagrant ${HOME_DIR}/.config
 sudo npm update
 
+sudo npm rebuild
 sudo npm rebuild node-sass
 
 ng update @angular/cli
 ng update @angular/core
 npm install
 sudo npm audit fix --force
+
+#npm install mini-css-extract-plugin
+
+#sudo npm remove webpack
+#sudo npm install webpack@4.11.1
+
 ng build
 
 nohup npm start > out.log 2>&1 &
+
+cd $PROJ_DIR
+git clone https://github.com/linnovate/mean.git
+
+#sudo rsync -avP $PROJ_DIR/mean $HOME_DIR/mean
+#cat <(crontab -l) <(echo "* * * * * sudo rsync -avP $PROJ_DIR/wordpress/ /usr/share/nginx/html/ && sudo chown -Rf www-data:www-data /usr/share/nginx/html") | crontab -
+
 
 
