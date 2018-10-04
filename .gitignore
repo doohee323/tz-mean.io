@@ -64,3 +64,4 @@ protractor.conf.js
 tsconfig.json
 tslint.json
 angular.json
+.sudo_as_admin_successful

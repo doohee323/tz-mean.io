@@ -48,6 +48,8 @@ npm -v
 sudo apt-get install nginx -y
 
 sudo cp -Rf $SRC_DIR/nginx/default /etc/nginx/sites-available
+sudo cp -Rf $SRC_DIR/nginx/ng /etc/nginx/sites-available
+sudo ln -s /etc/nginx/sites-available/ng /etc/nginx/sites-available/ng
 # curl http://127.1.0.1:80
 sudo service nginx restart
 
@@ -82,6 +84,8 @@ npm install
 sudo npm audit fix --force
 
 ng build
+
+sudo chown -Rf vagrant:vagrant $HOME_DIR/mean
 
 nohup npm start > out.log 2>&1 &
 

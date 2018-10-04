@@ -4,6 +4,8 @@
 require_relative './bootstrap'
 
 Vagrant.configure("2") do |config|
+   config.vm.synced_folder "./mean_o", "/home/vagrant/mean"
+
    config.vm.provider "virtualbox" do |v|
      v.customize ["modifyvm", :id, "--cpus", "2"]
    end
